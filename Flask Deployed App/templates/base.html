@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/bttn.css/0.2.4/bttn.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <title> {% block pagetitle %}CENFARM{% endblock pagetitle %}</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #212529;
+            --navbar-bg: #0d6efd;
+            --navbar-text: #fff;
+            --footer-bg: #f8f9fa;
+            --footer-text: #212529;
+            --card-bg: #fff;
+            --input-bg: #fff;
+            --input-text: #212529;
+        }
+        [data-theme="dark"] {
+            --bg-color: #181a1b;
+            --text-color: #f1f3f5;
+            --navbar-bg: #1a1d20;
+            --navbar-text: #f1f3f5;
+            --footer-bg: #1a1d20;
+            --footer-text: #f1f3f5;
+            --card-bg: #23272b;
+            --input-bg: #23272b;
+            --input-text: #f1f3f5;
+        }
+        body {
+            background-color: var(--bg-color) !important;
+            color: var(--text-color) !important;
+            height: 100vh;
+        }
+        .navbar {
+            background-color: var(--navbar-bg) !important;
+        }
+        .navbar .nav-link, .navbar .navbar-brand {
+            color: var(--navbar-text) !important;
+        }
+        .navbar .navbar-brand {
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .footer-basic {
+            background-color: var(--footer-bg) !important;
+            color: var(--footer-text) !important;
+        }
+        .card, .modal-content {
+            background-color: var(--card-bg) !important;
+            color: var(--text-color) !important;
+        }
+        input, textarea, select {
+            background-color: var(--input-bg) !important;
+            color: var(--input-text) !important;
+        }
+        .bg {
+
+            background-image: url("images/background.jpeg");
+
+            height: 100%;
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .file-upload input[type='file'] {
+            display: none;
+        }
+
+        .rounded-lg {
+            border-radius: 1rem;
+        }
+
+        .custom-file-label.rounded-pill {
+            border-radius: 50rem;
+        }
+
+        .custom-file-label.rounded-pill::after {
+            border-radius: 0 50rem 50rem 0;
+        }
+
+        label {
+            background-color: rgb(2, 46, 15);
+            color: white;
+            padding: 0.5rem;
+            font-family: sans-serif;
+            border-radius: 0.3rem;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        #file-chosen {
+            margin-left: 0.3rem;
+            font-family: sans-serif;
+        }
+
+        .footer-basic {
+            padding: 40px 0;
+            background-color: #042908;
+            color: #f1f3f5;
+        }
+
+        .footer-basic ul {
+            padding: 0;
+            list-style: none;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .footer-basic li {
+            padding: 0 10px;
+        }
+
+        .footer-basic ul a {
+            color: inherit;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .footer-basic ul a:hover {
+            opacity: 1;
+        }
+
+        .footer-basic .social {
+            text-align: center;
+            padding-bottom: 25px;
+        }
+
+        .footer-basic .social>a {
+            font-size: 24px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            display: inline-block;
+            text-align: center;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            margin: 0 8px;
+            color: inherit;
+            opacity: 0.75;
+        }
+
+        .footer-basic .social>a:hover {
+            opacity: 0.9;
+        }
+
+        .footer-basic .copyright {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 0;
+        }
+
+        html, body, h1, h2, h3, h4, h5, h6, p, a, button, label, input, textarea, select, .navbar, .footer-basic {
+            font-family: 'Poppins', 'Montserrat', 'Roboto', Arial, sans-serif !important;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .navbar, .footer-basic {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .navbar .nav-link, .navbar .navbar-brand {
+            transition: color 0.2s;
+        }
+        .navbar .nav-link:hover, .navbar .navbar-brand:hover {
+            color: #0d6efd !important;
+            text-decoration: underline;
+        }
+        .card, .modal-content, .shadow, .rounded-lg {
+            border-radius: 1.2rem !important;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+        }
+        .btn, button {
+            border-radius: 2rem !important;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        .btn-success, .btn-outline-success {
+            background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+            border: none;
+        }
+        .btn-success:hover, .btn-outline-success:hover {
+            background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" id="main-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">CENFARM</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <button id="theme-toggle" class="btn btn-outline-light ms-auto d-lg-none" aria-label="Toggle dark/light mode" style="margin-left: 1rem;"><img id="theme-icon" src="https://cdn-icons-png.flaticon.com/512/1828/1828774.png" alt="Moon" style="height:1.2em;vertical-align:middle;"></button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index">CENFARM AI</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/market">Supplements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact" style="color: white;">Contact-Us</a>
+                    </li>
+                </ul>
+                <button id="theme-toggle-lg" class="btn btn-outline-light ms-auto d-none d-lg-block" aria-label="Toggle dark/light mode" style="margin-left: 1rem;"><img id="theme-icon-lg" src="https://cdn-icons-png.flaticon.com/512/1828/1828774.png" alt="Moon" style="height:1.2em;vertical-align:middle;"></button>
+            </div>
+        </div>
+    </nav>
+    {% block body %}
+
+    {% endblock body %}
+    <div class="footer-basic bg-light text-dark">
+        <footer>
+            <center>
+            <div style="padding: 5;">
+                <a target="_blank" href='mailto:ensubuga019@gmail.com'><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" height="32" width="32" alt="Email"></a>&nbsp;
+                <a target="_blank" href="https://github.com/Cemputus"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" height="32" width="32" alt="GitHub"></a>&nbsp;
+                <a target="_blank" href="https://www.linkedin.com/in/emmanuel-nsubuga-2b7b1b1b2/"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" height="32" width="32" alt="LinkedIn"></a>&nbsp;
+            </div>
+            </center>
+            <br>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="/">Home</a></li>
+                <li class="list-inline-item"><a href="/services">Services</a></li>
+                <li class="list-inline-item laptop"><a href="/index">CENFARM AI</a></li>
+            </ul>
+            <p class="copyright">Developed by Emmanuel Nsubuga</p>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Theme toggle logic for both mobile and desktop buttons
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            // Change icon based on theme
+            const icon = document.getElementById('theme-icon');
+            const iconLg = document.getElementById('theme-icon-lg');
+            if (theme === 'dark') {
+                if (icon) { icon.src = 'https://cdn-icons-png.flaticon.com/512/1828/1828774.png'; icon.alt = 'Moon'; }
+                if (iconLg) { iconLg.src = 'https://cdn-icons-png.flaticon.com/512/1828/1828774.png'; iconLg.alt = 'Moon'; }
+            } else {
+                if (icon) { icon.src = 'https://cdn-icons-png.flaticon.com/512/1828/1828640.png'; icon.alt = 'Sun'; }
+                if (iconLg) { iconLg.src = 'https://cdn-icons-png.flaticon.com/512/1828/1828640.png'; iconLg.alt = 'Sun'; }
+            }
+        }
+        function getTheme() {
+            return localStorage.getItem('theme') || 'light';
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            setTheme(getTheme());
+            var btn = document.getElementById('theme-toggle');
+            if (btn) btn.onclick = function() { setTheme(getTheme() === 'light' ? 'dark' : 'light'); };
+            var btnLg = document.getElementById('theme-toggle-lg');
+            if (btnLg) btnLg.onclick = function() { setTheme(getTheme() === 'light' ? 'dark' : 'light'); };
+        });
+    </script>
+</body>
+<!-- <script>
+    if (window.matchMedia("(max-width: 767px)").matches)
+    {
+        // The viewport is less than 768 pixels wide
+        document.write("This is a mobile device.");
+        window.location.replace('/mobile-device');
+
+    } else {
+        
+        // The viewport is at least 768 pixels wide
+        document.write("This is a tablet or desktop.");
+    }
+</script> -->
+<!-- <script>
+    if(screen.width <= 700){
+        document.location = 'manthan2.html';
+    }
+</script> -->
+</html>

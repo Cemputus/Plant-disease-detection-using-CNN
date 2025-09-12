@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+{{title}}
+{% endblock pagetitle %}
+{% block body %}
+
+<div>
+  <div class="container">
+    <!-- For demo purpose -->
+    <div class="row mb-5 text-center text-white">
+      <div class="col-lg-10 mx-auto">
+        <h1 class="display-4" style="padding-top: 2%;font-weight: 400;color: rgb(4, 54, 4);""><b>{{title}}</b></h1>
+      </div>
+    </div>
+    <center>
+    <div class=" col">
+          <div class="p-3 shadow rounded-lg" style="width: 30%; background: var(--card-bg); color: var(--text-color);">
+
+            <img src={{image_url}} width="350" height="350">
+
+          </div>
+      </div>
+      </center>
+      <br>
+      <div class=" row ">
+        <div class="col mx-auto">
+          <div class="p-5 shadow rounded-lg" style="height: 95%; background: var(--card-bg); color: var(--text-color);">
+
+            <h5><b>
+                {% if pred==3 or pred==5 or pred==7 or pred==11 or pred==15 or pred==18 or pred==20 or pred==23 or
+                pred==24 or pred==25 or pred==28 or pred==38 %}
+                Tips to Grow Healthy Plants :
+                {% else %}
+                Brief Descritpion :
+                {% endif %}
+              </b></h5>
+            <p>{{desc}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mx-auto">
+          <div class="p-5 shadow rounded-lg" style="height:95%; background: var(--card-bg); color: var(--text-color);">
+            <h5><b>
+                {% if pred==3 or pred==5 or pred==7 or pred==11 or pred==15 or pred==18 or pred==20 or pred==23 or
+                pred==24 or pred==25 or pred==28 or pred==38 %}
+                Benefits :
+                {% else %}
+                Prevent This Plant Disease By follow below steps :
+                {% endif %}
+              </b></h5>
+            <p>
+              {{prevent}}
+            </p>
+          </div>
+        </div>
+
+        {% if pred!=4 %}
+        <div class="col mx-auto"">
+        <div class="p-5 shadow rounded-lg" style="height: 95%; background: var(--card-bg); color: var(--text-color);">
+          <center>
+            <h5><b>
+                {% if pred==3 or pred==5 or pred==7 or pred==11 or pred==15 or pred==18 or pred==20 or pred==23 or
+                pred==24 or pred==25 or pred==28 or pred==38 %}
+                Fertilizer :
+                {% else %}
+                Supplements :
+                {% endif %}
+              </b></h5>
+            <br>
+            <img src={{simage}} width="300" height="350">
+            <br>
+            <br>
+            <h6>{{sname}}</h6>
+
+            <a target="_blank" href={{buy_link}}><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a>
+          </center>
+        </div>
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+
+{% if error and uploaded_image_path %}
+<div class="container mt-4">
+  <div class="card shadow rounded-lg p-3 mb-3" style="max-width: 400px; margin: 0 auto;">
+    <div class="text-center">
+      <img src="/static/{{ uploaded_image_path }}" alt="Uploaded Image" style="max-width: 100%; max-height: 350px; border-radius: 1rem;">
+      <div class="mt-2 text-muted" style="font-size: 0.95rem;">This is the image you uploaded.</div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% if error %}
+<div class="container mt-4">
+  <div class="alert alert-warning shadow rounded-lg" style="font-size:1.1rem;">
+    <strong>{{ error }}</strong>
+    {% if suggestions %}
+      <ul class="mt-2" style="font-size:1rem;">
+        {% for tip in suggestions %}
+          <li>{{ tip }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+{% endblock body %}
