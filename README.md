@@ -68,7 +68,7 @@ Clone and set up locally:
 git clone https://github.com/Cemputus/Plant-disease-detection-using-CNN.git
 cd Plant-disease-detection-using-CNN
 ```
-
+#### Another project Still in development
 - dataset - https://huggingface.co/datasets/AI-Lab-Makerere/beans
 - https://www.kaggle.com/datasets/emmarex/plantdisease
 
