@@ -3,7 +3,7 @@
 ## 📌 Overview
 This repository contains a **Convolutional Neural Network (CNN)**-based system for detecting plant diseases from leaf images.  
 The model is trained on the **PlantVillage dataset** and deployed as a user-friendly web application:  
-👉 [CenFarm Web App](https://cenfarm.vercel.app/)   ### I have not fully integratedthe model into the web App
+👉 [CenFarm Web App](https://cenfarm.vercel.app/)  ***(I have not fully integrated the model into the web App)***
 
 
 Farmers, agronomists, and researchers can upload leaf images to receive **real-time disease predictions**, confidence scores, and practical remedy suggestions.  
